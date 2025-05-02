@@ -18,7 +18,7 @@ function RootLayout({ children }: PropsWithChildren) {
           검색
         </button>
       </header>
-      <main className="pt-[100px]">{children}</main>
+      <main className="pt-[100px] w-[1920px]">{children}</main>
     </>
   );
 }
