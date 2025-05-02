@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 import ResultComment from "@/components/resultComment";
 import React from "react";
 
 function ResultPage() {
-=======
-import React from "react";
-
-function RootPage() {
->>>>>>> 9516de8 (feat:홈페이지제작)
   return (
     <div className="flex">
       <section className="w-1/2 h-[calc(100vh-100px)] bg-black flex justify-center">
@@ -21,11 +15,7 @@ function RootPage() {
         </div>
       </section>
       <section className="w-1/2 h-[calc(100vh-100px)] bg-white p-4">
-<<<<<<< HEAD
         <button className="bg-secondary text-white font-bold tracking-wide text-lg rounded-md py-2 px-4 mb-3 hover:brightness-90 hover:cursor-pointer active:brightness-75">
-=======
-        <button className="bg-secondary text-white font-bold tracking-wide text-lg rounded-md py-2 px-4 mb-3">
->>>>>>> 9516de8 (feat:홈페이지제작)
           랭킹보기
         </button>
         <p className="text-2xl font-semibold text-secondary mb-4">
@@ -38,16 +28,11 @@ function RootPage() {
               placeholder="한마디를 남겨주세요."
               className="w-full outline-0 py-2 px-2 bg-white h-20"
             />
-<<<<<<< HEAD
             <button className="w-full bg-secondary text-white font-semibold py-2 hover:brightness-90 hover:cursor-pointer active:brightness-75">
-=======
-            <button className="w-full bg-secondary text-white font-semibold py-2">
->>>>>>> 9516de8 (feat:홈페이지제작)
               글쓰기
             </button>
           </div>
           <div className="max-h-[calc(100vh-400px)] overflow-y-auto mt-2 pb-4">
-<<<<<<< HEAD
             <ResultComment
               finalSelectionElement="단팥빵 도라에몽"
               comment="단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라"
@@ -116,197 +101,6 @@ function RootPage() {
               finalSelectionElement="단팥빵 도라에몽"
               comment="단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라"
             />
-=======
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
-            <div className="mt-2">
-              <div className="flex items-center">
-                <p className="font-bold text-lg">단팥빵 도라에몽</p>
-                <p className="text-sm text-gray-500 ml-2">(익명)</p>
-              </div>
-              <p className="text-sm leading-4.5">
-                단팥빵 도라에몽 안고른 사람은 도라에몽 다시 보고 와라
-              </p>
-            </div>
->>>>>>> 9516de8 (feat:홈페이지제작)
           </div>
         </div>
       </section>
@@ -314,8 +108,4 @@ function RootPage() {
   );
 }
 
-<<<<<<< HEAD
 export default ResultPage;
-=======
-export default RootPage;
->>>>>>> 9516de8 (feat:홈페이지제작)
