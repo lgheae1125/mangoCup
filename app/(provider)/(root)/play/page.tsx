@@ -2,28 +2,35 @@ import React from "react";
 
 function PlayPage() {
   return (
-    <header className="bg-white w-full h-screen fixed">
-      <div className="bg-yellow-300 flex items-center gap-x-50">
-        <div className="pl-20 py-5 flex items-center gap-x-5">
-          <div>
+    <>
+      <div className="relative">
+        <p className="absolute top-10 left-1/2 -translate-x-1/2 text-3xl text-white z-50 -translate-y-5 bg-black/70">
+          애니메이션 이상형 월드컵 32강 1/16
+        </p>
+        <p className="absolute top-10 left-1/2 -translate-x-93 text-3xl text-white z-50 translate-y-180 bg-black/70">
+          진격의 거인
+        </p>
+        <p className="absolute top-10 left-1/2 translate-x-60 text-3xl text-white z-50 translate-y-180 bg-black/70">
+          귀멸의 칼날
+        </p>
+        <div className="flex w-full h-full">
+          <div className="relative w-1/2  flex flex-row-reverse">
             <img
-              src="/images/Mango_icon.png"
-              alt="Mango_icon"
-              className="w-20"
+              src="/images/img1.webp"
+              alt="진격의 거인"
+              className="h-[calc(100vh-100px)] absolute"
             />
           </div>
-          <div>
-            <h1 className="text-gray-800 font-bold text-3xl">MANGO</h1>
+          <div className="relative w-1/2">
+            <img
+              src="/images/img2.webp"
+              alt="귀멸의 칼날"
+              className="h-[calc(100vh-100px)] absolute"
+            />
           </div>
         </div>
-        <div className="bg-white border-2 border-neutral-500 flex items-center gap-x-120 border-b border-t border-b-neutral-500 rounded-sm">
-          <p className="text-neutral-400 py-3 pl-3 pr-3">
-            월드컵 제목 또는 인물 이름으로 검색하세요.
-          </p>
-          <div className="bg-neutral-600 p-3  ">검색</div>
-        </div>
       </div>
-    </header>
+    </>
   );
 }
 
