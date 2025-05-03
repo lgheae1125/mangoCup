@@ -3,29 +3,22 @@ import React, { PropsWithChildren } from "react";
 function RootLayout({ children }: PropsWithChildren) {
   return (
     <>
-      <header className="bg-white w-full h-[100px] fixed z-50">
-        <div className="bg-yellow-300 flex items-center gap-x-50">
-          <div className="pl-20 py-5 flex items-center gap-x-5">
-            <div>
-              <img
-                src="/images/Mango_icon.png"
-                alt="Mango_icon"
-                className="w-20"
-              />
-            </div>
-            <div>
-              <h1 className="text-gray-800 font-bold text-3xl">MANGO</h1>
-            </div>
-          </div>
-          <div className="bg-white border-2 border-neutral-500 flex items-center gap-x-120 border-b border-t border-b-neutral-500 rounded-sm">
-            <p className="text-neutral-400 py-3 pl-3 pr-3">
-              월드컵 제목 또는 인물 이름으로 검색하세요.
-            </p>
-            <div className="bg-neutral-600 p-3  text-white">검색</div>
-          </div>
-        </div>
+      <header className="bg-primary w-full h-[100px] fixed flex items-center justify-center">
+        <img
+          src="/images/mangoCupLogo.png"
+          alt="logo"
+          className="left-40 h-10 absolute"
+        />
+        <input
+          className="w-[800px] h-10 border-1 rounded-l-sm border-secondary text-[#6666666] pl-3 bg-white outline-0"
+          type="text"
+          placeholder="월드컵 제목 또는 인물 이름으로 검색하세요."
+        />
+        <button className="h-10 px-3 bg-secondary rounded-r-sm text-white font-bold">
+          검색
+        </button>
       </header>
-      <main className="pt-[100px] min-h-screen">{children}</main>
+      <main className="pt-[100px] w-[1920px]">{children}</main>
     </>
   );
 }
