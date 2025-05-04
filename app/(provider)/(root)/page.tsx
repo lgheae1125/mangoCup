@@ -1,7 +1,23 @@
-import MangoCupCard from "@/components/MangoCupCard";
-import React from "react";
+"use client";
+
+// import MangoCupCard from "@/components/MangoCupCard";
+import React, { useEffect } from "react";
+import { supabase } from "@/lib/supabase/supabase";
 
 function HomePage() {
+  useEffect(() => {
+    (async () => {
+      const { data, error } = await supabase
+        .from("mango_cup_tournaments")
+        .select("*");
+      if (error) {
+        console.error("Error fetching tournaments:", error);
+      } else {
+        console.log("data:", data);
+      }
+    })();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-100">
       {/* 탭 메뉴 */}
@@ -35,11 +51,9 @@ function HomePage() {
 
       {/* 이상형 월드컵 카드 */}
       <div className="flex gap-x-[calc((1840px-430px*4)/3)] mx-10 mt-10 flex-wrap gap-y-8">
-        <MangoCupCard />
-        <MangoCupCard />
-        <MangoCupCard />
-        <MangoCupCard />
-        <MangoCupCard />
+        {/* {tournaments.length > 0 ? (
+          <MangoCupCard title={tournaments[0].title} likeCount={5800} />
+        ) : null} */}
       </div>
     </div>
   );
