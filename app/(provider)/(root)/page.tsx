@@ -1,10 +1,17 @@
 "use client";
 
-// import MangoCupCard from "@/components/MangoCupCard";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase/supabase";
+import MangoCupCard from "@/components/MangoCupCard";
+interface MangoCupDataType {
+  title: string;
+  like: number;
+  id: string;
+  time: string;
+}
 
 function HomePage() {
+  const [mangoCupData, setMangoCupData] = useState<MangoCupDataType[]>();
   useEffect(() => {
     (async () => {
       const { data, error } = await supabase
@@ -14,6 +21,8 @@ function HomePage() {
         console.error("Error fetching tournaments:", error);
       } else {
         console.log("data:", data);
+        setMangoCupData(data);
+        console.log("mangocupData", mangoCupData);
       }
     })();
   }, []);
@@ -51,9 +60,18 @@ function HomePage() {
 
       {/* 이상형 월드컵 카드 */}
       <div className="flex gap-x-[calc((1840px-430px*4)/3)] mx-10 mt-10 flex-wrap gap-y-8">
-        {/* {tournaments.length > 0 ? (
-          <MangoCupCard title={tournaments[0].title} likeCount={5800} />
-        ) : null} */}
+        {mangoCupData
+          ? mangoCupData.map((item) => (
+              <MangoCupCard
+                key={item.id}
+                title={item.title}
+                likeCount={item.like}
+                time={item.created_at}
+                firstImageUrl="https://i.namu.wiki/i/NM9w_oZE3CyF6zL-7iNgSGx63JuS2aQCSnZMkFyo5oE-yBoYwYFGlIrVs58-COINhJY_gOcJxHJRGYdQko7OK0Q92kLkvbrkj9cR8Uqz6r5ikIY_FFYuUNgn6GpKFvnb7A_AHHgqGeeTxlQf0Qxd6Q.webp"
+                secondImageUrl="https://sojoong.joins.com/wp-content/uploads/sites/4/2024/06/04.jpg"
+              />
+            ))
+          : null}
       </div>
     </div>
   );
