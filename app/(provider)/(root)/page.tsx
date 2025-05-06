@@ -3,11 +3,13 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase/supabase";
 import MangoCupCard from "@/components/MangoCupCard";
+import Link from "next/link";
 interface MangoCupDataType {
   title: string;
   like: number;
   id: string;
   time: string;
+  created_at: string;
 }
 
 function HomePage() {
@@ -62,14 +64,18 @@ function HomePage() {
       <div className="flex gap-x-[calc((1840px-430px*4)/3)] mx-10 mt-10 flex-wrap gap-y-8">
         {mangoCupData
           ? mangoCupData.map((item) => (
-              <MangoCupCard
+              <Link
                 key={item.id}
-                title={item.title}
-                likeCount={item.like}
-                time={item.created_at}
-                firstImageUrl="https://i.namu.wiki/i/NM9w_oZE3CyF6zL-7iNgSGx63JuS2aQCSnZMkFyo5oE-yBoYwYFGlIrVs58-COINhJY_gOcJxHJRGYdQko7OK0Q92kLkvbrkj9cR8Uqz6r5ikIY_FFYuUNgn6GpKFvnb7A_AHHgqGeeTxlQf0Qxd6Q.webp"
-                secondImageUrl="https://sojoong.joins.com/wp-content/uploads/sites/4/2024/06/04.jpg"
-              />
+                href={{ pathname: "/play", query: `${item.id}` }}
+              >
+                <MangoCupCard
+                  title={item.title}
+                  likeCount={item.like}
+                  time={item.created_at}
+                  firstImageUrl="https://i.namu.wiki/i/NM9w_oZE3CyF6zL-7iNgSGx63JuS2aQCSnZMkFyo5oE-yBoYwYFGlIrVs58-COINhJY_gOcJxHJRGYdQko7OK0Q92kLkvbrkj9cR8Uqz6r5ikIY_FFYuUNgn6GpKFvnb7A_AHHgqGeeTxlQf0Qxd6Q.webp"
+                  secondImageUrl="https://sojoong.joins.com/wp-content/uploads/sites/4/2024/06/04.jpg"
+                />
+              </Link>
             ))
           : null}
       </div>
