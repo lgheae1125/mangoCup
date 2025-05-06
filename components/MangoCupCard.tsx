@@ -35,7 +35,7 @@ function MangoCupCard({
         <div>
           <p className="text-2xl">{title}</p>
           <p className="mt-1 text-xs">
-            {likeCount}k{time.slice(9, 10)}일전
+            {likeCount}k {time.slice(9, 10)}일전
           </p>
         </div>
         <SlOptionsVertical className="text-black w-5 h-5" />
