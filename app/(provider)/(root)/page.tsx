@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase/supabase";
 import MangoCupCard from "@/components/MangoCupCard";
 import Link from "next/link";
-
 interface MangoCupDataType {
   title: string;
   like: number;
