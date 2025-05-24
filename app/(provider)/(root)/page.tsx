@@ -28,7 +28,7 @@ function HomePage() {
     })();
   }, []);
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen">
       {/* 탭 메뉴 */}
       <div className="flex items-center gap-8 px-8 py-4 bg-whitem">
         <div className="overflow-hidden rounded bg-white shadow-sm">
@@ -59,10 +59,11 @@ function HomePage() {
       </div>
 
       {/* 이상형 월드컵 카드 */}
-      <div className="flex gap-x-[calc((1840px-430px*4)/3)] mx-10 mt-10 flex-wrap gap-y-8">
+      <div className="flex gap-x-8 mx-10 mt-10 flex-wrap gap-y-8">
         {mangoCupData
           ? mangoCupData.map((item) => (
               <Link
+                className="w-[calc((100%-3*32px)/4)]"
                 key={item.id}
                 href={{ pathname: "/play", query: { id: item.id } }}
               >
