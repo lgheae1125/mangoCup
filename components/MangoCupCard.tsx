@@ -18,7 +18,7 @@ function MangoCupCard({
   time,
 }: MangoCupCardProps) {
   return (
-    <div className="w-[430px] bg-white rounded-3xl p-3 shadow-md">
+    <div className="w-full bg-white rounded-3xl p-3 shadow-md">
       <div className="w-full aspect-video rounded-2xl flex">
         <img
           src={firstImageUrl}
