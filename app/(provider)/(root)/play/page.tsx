@@ -23,7 +23,7 @@ function PlayPage() {
         setEntries(data);
       }
     })();
-  }, []);
+  }, [mangoCupTournamentId]);
   return (
     <>
       <div className="relative">
