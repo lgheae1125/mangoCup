@@ -3,8 +3,11 @@ import "./globals.css";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "🥭 망고 이상형 월드컵",
+  title: "망고 이상형 월드컵",
   description: "많은 고민 줄여서 망고라고 함(인싸어)",
+  icons: {
+    icon: "/images/logo-of-mango.png",
+  },
 };
 
 export default function RootLayout({
