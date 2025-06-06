@@ -39,7 +39,7 @@ export const useChampionshipStore = create<ChampionshipStoreState>()(
         set({ championshipEntry: newChampionshipEntry }),
     }),
     {
-      name: "championship-storage", // localStorage에 저장될 key
+      name: "championship-storage",
     }
   )
 );
