@@ -7,7 +7,6 @@ interface MangoCupDataType {
   title: string;
   like: number;
   id: string;
-  time: string;
   created_at: string;
 }
 
@@ -70,9 +69,8 @@ function HomePage() {
                 <MangoCupCard
                   title={item.title}
                   likeCount={item.like}
-                  time={item.created_at}
-                  firstImageUrl="https://i.namu.wiki/i/NM9w_oZE3CyF6zL-7iNgSGx63JuS2aQCSnZMkFyo5oE-yBoYwYFGlIrVs58-COINhJY_gOcJxHJRGYdQko7OK0Q92kLkvbrkj9cR8Uqz6r5ikIY_FFYuUNgn6GpKFvnb7A_AHHgqGeeTxlQf0Qxd6Q.webp"
-                  secondImageUrl="https://sojoong.joins.com/wp-content/uploads/sites/4/2024/06/04.jpg"
+                  createdAt={item.created_at}
+                  id={item.id}
                 />
               </Link>
             ))
