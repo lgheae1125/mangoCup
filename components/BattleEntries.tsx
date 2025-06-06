@@ -10,7 +10,6 @@ function BattleEntries() {
 
   const leftEntry = entries[index];
   const rightEntry = entries[index + 1] ? entries[index + 1] : null;
-  console.log("Re-rendering!! leftEntry:", leftEntry);
 
   useEffect(() => {
     // N강이 끝나면 다음 강으로 넘어가기
