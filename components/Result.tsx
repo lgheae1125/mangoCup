@@ -1,11 +1,25 @@
+"use client";
+
 import ResultComment from "@/components/resultComment";
+import { useChampionshipStore } from "@/zustand/tournamentPlayStore";
 import React from "react";
 
 function ResultPage() {
+  const championshipEntry = useChampionshipStore(
+    (state) => state.championshipEntry
+  );
   return (
     <div className="flex">
       <section className="w-1/2 h-[calc(100vh-100px)] bg-black flex justify-center">
-        <div className="w-full h-full bg-contain bg-[url('/images/doraemon.jpg')] bg-no-repeat bg-center flex flex-col items-center relative">
+        <div className="w-full h-full bg-contain bg-no-repeat bg-center flex flex-col items-center relative">
+          {championshipEntry ? (
+            <img
+              src={championshipEntry.imageURL}
+              alt=""
+              className="h-[calc(100vh-100px)] absolute"
+            />
+          ) : null}
+
           <p className="text-white text-5xl bg-black/75 px-4 py-4 w-full text-center wrap-anywhere absolute">
             도라에몽 최애 사진 월드컵
           </p>

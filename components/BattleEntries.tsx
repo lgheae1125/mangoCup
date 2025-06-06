@@ -1,4 +1,8 @@
-import { useBattleStore } from "@/zustand/tournamentPlayStore";
+import {
+  useBattleStore,
+  useChampionshipStore,
+} from "@/zustand/tournamentPlayStore";
+import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 function BattleEntries() {
@@ -11,6 +15,11 @@ function BattleEntries() {
   const leftEntry = entries[index];
   const rightEntry = entries[index + 1] ? entries[index + 1] : null;
 
+  const router = useRouter();
+
+  const setChampionshipEntry = useChampionshipStore(
+    (state) => state.setChampionshipEntry
+  );
   useEffect(() => {
     // N강이 끝나면 다음 강으로 넘어가기
     if (!leftEntry) {
@@ -20,8 +29,12 @@ function BattleEntries() {
     }
   }, [leftEntry, selectedEntries, setEntries]);
 
-  if (entries.length === 1) return null;
-  // 우승 했을때
+  if (entries.length === 1) {
+    setChampionshipEntry(entries[0]);
+    router.replace("/result");
+    return;
+  }
+
   if (!leftEntry) return;
 
   return (

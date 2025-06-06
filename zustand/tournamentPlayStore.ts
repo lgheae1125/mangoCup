@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 type MangoCupEntriesType = {
   imageURL: string;
@@ -13,6 +14,10 @@ type TournamentPlayStoreState = {
   selectEntry: (selectedEntry: MangoCupEntriesType) => void;
 };
 
+type ChampionshipStoreState = {
+  championshipEntry: MangoCupEntriesType | null;
+  setChampionshipEntry: (newChampionshipEntry: MangoCupEntriesType) => void;
+};
 export const useBattleStore = create<TournamentPlayStoreState>((set) => ({
   entries: [],
   selectedEntries: [],
@@ -25,3 +30,16 @@ export const useBattleStore = create<TournamentPlayStoreState>((set) => ({
       index: state.index + 2,
     })),
 }));
+
+export const useChampionshipStore = create<ChampionshipStoreState>()(
+  persist(
+    (set) => ({
+      championshipEntry: null,
+      setChampionshipEntry: (newChampionshipEntry) =>
+        set({ championshipEntry: newChampionshipEntry }),
+    }),
+    {
+      name: "championship-storage", // localStorage에 저장될 key
+    }
+  )
+);
