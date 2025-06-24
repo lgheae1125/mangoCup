@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase/supabase";
+import { supabase } from "@/supabase/client";
 import MangoCupCard from "@/components/MangoCupCard";
 import Link from "next/link";
 interface MangoCupDataType {
@@ -27,7 +27,7 @@ function HomePage() {
     })();
   }, []);
   return (
-    <div className="min-h-screen w-[1800px] mx-auto">
+    <div>
       {/* 탭 메뉴 */}
       <div className="flex items-center gap-8 px-8 py-4 bg-whitem">
         <div className="overflow-hidden rounded bg-white shadow-sm">

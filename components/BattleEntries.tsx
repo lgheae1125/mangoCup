@@ -11,11 +11,10 @@ function BattleEntries() {
   const index = useBattleStore((state) => state.index);
   const selectEntry = useBattleStore((state) => state.selectEntry);
   const setEntries = useBattleStore((state) => state.setEntries);
-
   const leftEntry = entries[index];
   const rightEntry = entries[index + 1] ? entries[index + 1] : null;
-
   const router = useRouter();
+  let isEndBattle = false;
 
   const setChampionshipEntry = useChampionshipStore(
     (state) => state.setChampionshipEntry
@@ -27,23 +26,23 @@ function BattleEntries() {
         setEntries(selectedEntries);
       }
     }
-  }, [leftEntry, selectedEntries, setEntries]);
+    if (isEndBattle) {
+      setChampionshipEntry(entries[0]);
+      router.replace("/result");
+    }
+  }, [leftEntry, selectedEntries, setEntries, isEndBattle]);
 
-  if (entries.length === 1) {
-    setChampionshipEntry(entries[0]);
-    router.replace("/result");
-    return;
-  }
+  if (entries.length === 1) isEndBattle = true;
 
   if (!leftEntry) return;
 
   return (
     <>
-      <p className="absolute top-10 left-1/2 -translate-x-93 text-3xl text-white z-50 translate-y-180 bg-black/70">
+      <p className="absolute top-10 left-1/2 -translate-x-93 text-3xl text-white z-10 translate-y-180 bg-black/70">
         {leftEntry.candidateName}
       </p>
       {rightEntry ? (
-        <p className="absolute top-10 left-1/2 translate-x-60 text-3xl text-white z-50 translate-y-180 bg-black/70">
+        <p className="absolute top-10 left-1/2 translate-x-60 text-3xl text-white z-10 translate-y-180 bg-black/70">
           {rightEntry.candidateName}
         </p>
       ) : null}
