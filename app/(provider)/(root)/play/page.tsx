@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { supabase } from "@/lib/supabase/supabase";
+import { supabase } from "@/supabase/client";
 import { useSearchParams } from "next/navigation";
 import BattleEntries from "@/components/BattleEntries";
 import { useBattleStore } from "@/zustand/tournamentPlayStore";
@@ -12,6 +12,7 @@ function PlayPage() {
   const setEntries = useBattleStore((state) => state.setEntries);
 
   useEffect(() => {
+    if (!mangoCupTournamentId) return;
     (async () => {
       const { data, error } = await supabase
         .from("mango_cup_entries")
@@ -23,11 +24,11 @@ function PlayPage() {
         setEntries(data);
       }
     })();
-  }, [mangoCupTournamentId]);
+  }, [mangoCupTournamentId, mangoCupTournamentId]);
   return (
     <>
       <div className="relative">
-        <p className="absolute top-10 left-1/2 -translate-x-1/2 text-3xl text-white z-50 -translate-y-5 bg-black/70">
+        <p className="absolute top-10 left-1/2 -translate-x-1/2 text-3xl text-white z-10 -translate-y-5 bg-black/70">
           애니메이션 이상형 월드컵 32강 1/16
         </p>
         <BattleEntries />

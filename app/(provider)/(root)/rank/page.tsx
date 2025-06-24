@@ -1,4 +1,4 @@
-import RankCard from "@/components/RankCard";
+import RankCardList from "@/components/RankCardList";
 import React from "react";
 
 function RankPage() {
@@ -14,14 +14,11 @@ function RankPage() {
           <div className="py-3 flex items-center">
             <input
               type="number"
-              className="bg-white border-neutral-200rder-1 w-10 rounded-sm"
+              className="bg-white border-neutral-200 w-10 rounded-sm"
             />
             <p>씩 보기</p>
             <p className="ml-auto">검색 :</p>
-            <input
-              type="text"
-              className="bg-white border-neutral-200rder-1 w-50"
-            />
+            <input type="text" className="bg-white border-neutral-200 w-50" />
           </div>
         </div>
       </div>
@@ -48,15 +45,7 @@ function RankPage() {
             </th>
           </tr>
         </thead>
-        <tbody>
-          <RankCard
-            index={1}
-            image="이미지"
-            title="진격의거인"
-            championshipRatio={16.09}
-            winRatio={82.18}
-          />
-        </tbody>
+        <RankCardList />
       </table>
     </>
   );

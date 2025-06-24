@@ -4,10 +4,11 @@ import { persist } from "zustand/middleware";
 type MangoCupEntriesType = {
   imageURL: string;
   candidateName: string;
+  mango_cup_tournament_id: string;
 };
 
 type TournamentPlayStoreState = {
-  entries: MangoCupEntriesType[];
+  entries: MangoCupEntriesType[] | null;
   selectedEntries: MangoCupEntriesType[];
   index: number;
   setEntries: (newEntries: MangoCupEntriesType[]) => void;

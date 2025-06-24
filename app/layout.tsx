@@ -17,11 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <Suspense fallback={<div>로딩 중...</div>}>
-        <body className={`antialiased bg-gray-100 overflow-x-hidden`}>
-          {children}
-        </body>
-      </Suspense>
+      <body className={`antialiased bg-gray-100 overflow-x-hidden`}>
+        <Suspense fallback={<div>로딩 중...</div>}>{children}</Suspense>
+      </body>
     </html>
   );
 }

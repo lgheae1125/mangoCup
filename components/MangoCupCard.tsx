@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase/supabase";
+import { supabase } from "@/supabase/client";
 import React, { useEffect, useState } from "react";
 import { SlOptionsVertical } from "react-icons/sl";
 
@@ -25,15 +25,13 @@ function MangoCupCard({ title, likeCount, createdAt, id }: MangoCupCardProps) {
       if (error) {
         console.error("Error fetching tournaments:", error);
       } else {
-        console.log("data:", data);
         setMangoCupCardData(data);
-        console.log("mangoCupCardData", mangoCupCardData);
       }
     })();
   }, []);
   return (
-    <div className="w-full bg-white rounded-3xl p-3 shadow-xl">
-      <div className="w-full aspect-video rounded-2xl flex overflow-hidden">
+    <div className="w-full bg-white rounded-3xl p-3 shadow-xl duration-100 group hover:bg-primary">
+      <div className="w-full aspect-video rounded-2xl flex overflow-hidden group-hover:brightness-90">
         {mangoCupCardData ? (
           <>
             <img
@@ -56,12 +54,14 @@ function MangoCupCard({ title, likeCount, createdAt, id }: MangoCupCardProps) {
       </div>
       <div className="mx-3 mt-3 flex items-center justify-between">
         <div>
-          <p className="text-2xl">{title}</p>
-          <p className="mt-1 text-xs">
+          <p className="text-2xl duration-100 group-hover:text-white group-hover:font-semibold">
+            {title}
+          </p>
+          <p className="mt-1 text-xs duration-100 group-hover:text-white">
             {likeCount}k {createdAt.slice(9, 10)}일전
           </p>
         </div>
-        <SlOptionsVertical className="text-black w-5 h-5" />
+        <SlOptionsVertical className="text-black w-5 h-5 duration-100 group-hover:text-white" />
       </div>
     </div>
   );
