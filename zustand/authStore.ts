@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { Tables } from "@/supabase/database.types";
 import { User } from "@supabase/supabase-js";
+import { Tables } from "@/supabase/database.types";
 
 type useAuthStoreState = {
   authUser: User | null;

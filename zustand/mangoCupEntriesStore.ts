@@ -1,4 +1,4 @@
-import { Tables } from "@/types/supabase";
+import { Tables } from "@/supabase/database.types";
 import { create } from "zustand";
 
 type mangoCupEntriesState = {

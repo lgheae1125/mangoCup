@@ -49,18 +49,21 @@ export type Database = {
       }
       mango_cup_tournaments: {
         Row: {
+          create_user_id: string
           created_at: string
           id: string
           like: number
           title: string
         }
         Insert: {
+          create_user_id?: string
           created_at?: string
           id?: string
           like?: number
           title: string
         }
         Update: {
+          create_user_id?: string
           created_at?: string
           id?: string
           like?: number
