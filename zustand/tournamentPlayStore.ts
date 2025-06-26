@@ -8,7 +8,7 @@ type MangoCupEntriesType = {
 };
 
 type TournamentPlayStoreState = {
-  entries: MangoCupEntriesType[] | null;
+  entries: MangoCupEntriesType[];
   selectedEntries: MangoCupEntriesType[];
   index: number;
   setEntries: (newEntries: MangoCupEntriesType[]) => void;

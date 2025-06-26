@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import RankCard from "./RankCard";
 import { useChampionshipStore } from "@/zustand/tournamentPlayStore";
 import { supabase } from "@/supabase/client";
-import { Tables } from "@/types/supabase";
+import { Tables } from "@/supabase/database.types";
 
 function RankCardList() {
   const championshipEntry = useChampionshipStore(

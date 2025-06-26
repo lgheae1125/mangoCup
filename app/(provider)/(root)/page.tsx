@@ -1,31 +1,7 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { supabase } from "@/supabase/client";
-import MangoCupCard from "@/components/MangoCupCard";
-import Link from "next/link";
-interface MangoCupDataType {
-  title: string;
-  like: number;
-  id: string;
-  created_at: string;
-}
+import GetMangoCupList from "@/components/GetMangoCupList";
+import React from "react";
 
 function HomePage() {
-  const [mangoCupData, setMangoCupData] = useState<MangoCupDataType[]>();
-  useEffect(() => {
-    (async () => {
-      const { data, error } = await supabase
-        .from("mango_cup_tournaments")
-        .select("*");
-      if (error) {
-        console.error("Error fetching tournaments:", error);
-      } else {
-        console.log("data:", data);
-        setMangoCupData(data);
-        console.log("mangocupData", mangoCupData);
-      }
-    })();
-  }, []);
   return (
     <div>
       {/* 탭 메뉴 */}
@@ -58,24 +34,7 @@ function HomePage() {
       </div>
 
       {/* 이상형 월드컵 카드 */}
-      <div className="flex gap-x-8 mx-10 mt-10 flex-wrap gap-y-8">
-        {mangoCupData
-          ? mangoCupData.map((item) => (
-              <Link
-                className="w-[calc((100%-3*32px)/4)]"
-                key={item.id}
-                href={{ pathname: "/play", query: { id: item.id } }}
-              >
-                <MangoCupCard
-                  title={item.title}
-                  likeCount={item.like}
-                  createdAt={item.created_at}
-                  id={item.id}
-                />
-              </Link>
-            ))
-          : null}
-      </div>
+      <GetMangoCupList />
     </div>
   );
 }
