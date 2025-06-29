@@ -1,22 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase/supabase";
-import MangoCupCard from "@/components/MangoCupCard";
-import Link from "next/link";
+import React, { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import GetMangoCupList from "@/components/GetMangoCupList";
-        
-interface MangoCupDataType {
-  title: string;
-  like: number;
-  id: string;
-  created_at: string;
-}
+import { supabase } from "@/supabase/client";
 
 function HomePage() {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("search") || "";
-  const [mangoCupData, setMangoCupData] = useState<MangoCupDataType[]>();
   useEffect(() => {
     (async () => {
       const { data, error } = await supabase
@@ -26,7 +16,6 @@ function HomePage() {
       if (error) {
         console.error("Error fetching tournaments:", error);
       } else {
-        setMangoCupData(data);
         console.log("mangocupData", data);
       }
     })();
