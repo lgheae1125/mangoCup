@@ -4,7 +4,8 @@ import { supabase } from "@/lib/supabase/supabase";
 import MangoCupCard from "@/components/MangoCupCard";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-
+import GetMangoCupList from "@/components/GetMangoCupList";
+        
 interface MangoCupDataType {
   title: string;
   like: number;
@@ -32,7 +33,7 @@ function HomePage() {
   }, [searchTerm]);
 
   return (
-    <div className="min-h-screen w-[1800px] mx-auto">
+    <div>
       {/* 탭 메뉴 */}
       <div className="flex items-center gap-8 px-8 py-4 bg-whitem">
         <div className="overflow-hidden rounded bg-white shadow-sm">
@@ -63,24 +64,7 @@ function HomePage() {
       </div>
 
       {/* 이상형 월드컵 카드 */}
-      <div className="flex gap-x-8 mx-10 mt-10 flex-wrap gap-y-8">
-        {mangoCupData
-          ? mangoCupData.map((item) => (
-              <Link
-                className="w-[calc((100%-3*32px)/4)]"
-                key={item.id}
-                href={{ pathname: "/play", query: { id: item.id } }}
-              >
-                <MangoCupCard
-                  title={item.title}
-                  likeCount={item.like}
-                  createdAt={item.created_at}
-                  id={item.id}
-                />
-              </Link>
-            ))
-          : null}
-      </div>
+      <GetMangoCupList />
     </div>
   );
 }

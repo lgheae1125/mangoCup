@@ -20,8 +20,8 @@ function RankCard({
       <td className="border-neutral-200 border-1 pt-3 pl-3 pb-10 w-[5%] h-full text-sm font-semibold text-neutral-600">
         {index}
       </td>
-      <td className="border-neutral-200 border-1 pt-3 pl-3 pb-10 w-[10%] h-full bg-neutral-500">
-        {image}
+      <td className="border-neutral-200 border-1 w-[10%] h-full bg-neutral-500">
+        <img src={image} alt={title} className="w-full h-full object-cover" />
       </td>
       <td className="border-neutral-200 border-1  pt-3  pl-3 pb-10 w-[45%] h-full text-sm font-semibold text-neutral-600">
         {title}

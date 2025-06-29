@@ -2,6 +2,7 @@
 
 import ResultComment from "@/components/resultComment";
 import { useChampionshipStore } from "@/zustand/tournamentPlayStore";
+import Link from "next/link";
 import React from "react";
 
 function ResultPage() {
@@ -29,9 +30,21 @@ function ResultPage() {
         </div>
       </section>
       <section className="w-1/2 h-[calc(100vh-100px)] bg-white p-4">
-        <button className="bg-secondary text-white font-bold tracking-wide text-lg rounded-md py-2 px-4 mb-3 hover:brightness-90 hover:cursor-pointer active:brightness-75">
-          랭킹보기
-        </button>
+        {!!championshipEntry ? (
+          <Link
+            href={{
+              pathname: "/rank",
+              query: { id: championshipEntry?.mango_cup_tournament_id },
+            }}
+            className="bg-secondary text-white font-bold tracking-wide text-lg rounded-md py-2 px-4 mb-3 hover:brightness-90 hover:cursor-pointer active:brightness-75 inline-block"
+          >
+            랭킹보기
+          </Link>
+        ) : (
+          <div className="bg-secondary text-white font-bold tracking-wide text-lg rounded-md py-2 px-4 mb-3 hover:brightness-90 hover:cursor-pointer active:brightness-75 inline-block">
+            랭킹보기
+          </div>
+        )}
         <p className="text-2xl font-semibold text-secondary mb-4">
           사용자 의견
         </p>
