@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase/supabase";
 import MangoCupCard from "@/components/MangoCupCard";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+
 interface MangoCupDataType {
   title: string;
   like: number;
@@ -11,21 +13,24 @@ interface MangoCupDataType {
 }
 
 function HomePage() {
+  const searchParams = useSearchParams();
+  const searchTerm = searchParams.get("search") || "";
   const [mangoCupData, setMangoCupData] = useState<MangoCupDataType[]>();
   useEffect(() => {
     (async () => {
       const { data, error } = await supabase
         .from("mango_cup_tournaments")
-        .select("*");
+        .select("*")
+        .ilike("title", `%${searchTerm}%`);
       if (error) {
         console.error("Error fetching tournaments:", error);
       } else {
-        console.log("data:", data);
         setMangoCupData(data);
-        console.log("mangocupData", mangoCupData);
+        console.log("mangocupData", data);
       }
     })();
-  }, []);
+  }, [searchTerm]);
+
   return (
     <div className="min-h-screen w-[1800px] mx-auto">
       {/* 탭 메뉴 */}
