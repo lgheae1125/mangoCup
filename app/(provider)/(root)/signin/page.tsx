@@ -4,6 +4,7 @@ import { supabase } from "@/supabase/client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { FormEvent, useRef, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 function SigninPage() {
   const emailInputRef = useRef<HTMLInputElement>(null);
@@ -40,7 +41,7 @@ function SigninPage() {
     if (error) return console.log(error);
     if (!data.user) return console.log("로그인 실패!", error);
 
-    alert("로그인 성공!"); //나중에 토스트로 변경
+    toast.success("로그인 성공!"); //나중에 토스트로 변경
     router.replace("/");
   };
 
@@ -87,6 +88,13 @@ function SigninPage() {
       >
         회원가입
       </Link>
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 2000,
+        }}
+      />
     </div>
   );
 }

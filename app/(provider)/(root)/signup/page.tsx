@@ -5,6 +5,7 @@ import { TablesInsert } from "@/supabase/database.types";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { FormEvent, useRef, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 function SignupPage() {
   const emailInputRef = useRef<HTMLInputElement>(null);
@@ -62,7 +63,7 @@ function SignupPage() {
     };
 
     await supabase.from("users").insert(userProfileData);
-    alert("회원가입 성공!");
+    toast.success("회원가입 성공!");
     router.replace("/");
   };
 
@@ -125,6 +126,13 @@ function SignupPage() {
       >
         로그인
       </Link>
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 2000,
+        }}
+      />
     </div>
   );
 }
