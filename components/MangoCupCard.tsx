@@ -2,6 +2,7 @@
 
 import { supabase } from "@/supabase/client";
 import React, { useEffect, useRef, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { SlOptionsVertical } from "react-icons/sl";
 
 interface MangoCupCardImage {
@@ -34,7 +35,8 @@ function MangoCupCard({
   };
 
   const handleClickDeleteButton = async () => {
-    if (create_user_id != current_user_id) return alert("권한이 없습니다.");
+    if (create_user_id != current_user_id)
+      return toast.error("권한이 없습니다.");
     console.log("삭제 버튼 누름");
     const { error } = await supabase
       .from("mango_cup_tournaments")
@@ -42,7 +44,7 @@ function MangoCupCard({
       .eq("id", id);
 
     if (error) return console.log("handleClickDeleteButton error", error);
-    alert("삭제 성공");
+    toast.success("삭제 성공");
     window.location.reload();
   };
 
@@ -132,6 +134,13 @@ function MangoCupCard({
           )}
         </div>
       </div>
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 2000,
+        }}
+      />
     </div>
   );
 }
