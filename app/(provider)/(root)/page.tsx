@@ -1,26 +1,7 @@
-"use client";
-import React, { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import React from "react";
 import GetMangoCupList from "@/components/GetMangoCupList";
-import { supabase } from "@/supabase/client";
 
 function HomePage() {
-  const searchParams = useSearchParams();
-  const searchTerm = searchParams.get("search") || "";
-  useEffect(() => {
-    (async () => {
-      const { data, error } = await supabase
-        .from("mango_cup_tournaments")
-        .select("*")
-        .ilike("title", `%${searchTerm}%`);
-      if (error) {
-        console.error("Error fetching tournaments:", error);
-      } else {
-        console.log("mangocupData", data);
-      }
-    })();
-  }, [searchTerm]);
-
   return (
     <div>
       {/* 탭 메뉴 */}
@@ -52,7 +33,7 @@ function HomePage() {
         </div>
       </div>
 
-      {/* 이상형 월드컵 카드 */}
+      {/* 이상형 월드컵 카드 리스트 */}
       <GetMangoCupList />
     </div>
   );

@@ -3,7 +3,10 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "@/supabase/client";
 import MangoCupCard from "@/components/MangoCupCard";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import MangoCupCardSkeleton from "./MangoCupCardSkeleton";
+
 
 interface MangoCupListType {
   title: string;
@@ -14,18 +17,31 @@ interface MangoCupListType {
 
 function GetMangoCupList() {
   const [mangoCupList, setMangoCupList] = useState<MangoCupListType[]>();
+  const searchParams = useSearchParams();
+  const searchTerm = searchParams.get("search") || "";
+
   useEffect(() => {
     (async () => {
-      const { data, error } = await supabase
+      let query = supabase
         .from("mango_cup_tournaments")
-        .select("*");
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      // 검색어가 있을 경우 필터링
+      if (searchTerm) {
+        query = query.ilike("title", `%${searchTerm}%`);
+      }
+
+      const { data, error } = await query;
+
       if (error) {
         console.error("mangoCupList error:", error);
       } else {
         setMangoCupList(data);
       }
     })();
-  }, []);
+  }, [searchTerm]);
+
   return (
     <div className="flex gap-x-8 mx-10 mt-10 flex-wrap gap-y-8">
       {mangoCupList ? (
