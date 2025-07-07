@@ -2,6 +2,7 @@
 
 import { supabase } from "@/supabase/client";
 import React, { useRef, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { GoPlus } from "react-icons/go";
 
 function CreateMangoCupPage() {
@@ -31,7 +32,7 @@ function CreateMangoCupPage() {
     const name = nameInputRef.current?.value.trim();
 
     if (!file || !name) {
-      alert("이미지와 제목을 모두 입력해주세요.");
+      toast.error("이미지와 제목을 모두 입력해주세요.");
       return;
     }
 
@@ -57,8 +58,10 @@ function CreateMangoCupPage() {
   };
 
   const handleCreateMangoCup = async () => {
-    if (!mangoTitleInput.current?.value) return alert("제목을 입력해주세요.");
-    if (candidates.length < 2) return alert("후보를 2개 이상 생성해주세요.");
+    if (!mangoTitleInput.current?.value)
+      return toast.error("제목을 입력해주세요.");
+    if (candidates.length < 2)
+      return toast.error("후보를 2개 이상 생성해주세요.");
 
     console.log("1단계 - tournament insert 요청 시작");
     const { data: tournamentInsertData, error: tournamentInsertError } =
@@ -84,7 +87,7 @@ function CreateMangoCupPage() {
         .select();
 
       if (error) return console.error("후보 삽입 에러", error.message);
-      alert("이상형 월드컵이 생성되었습니다.");
+      toast.success("이상형 월드컵이 생성되었습니다.");
       window.location.reload();
     }
   };
@@ -180,6 +183,13 @@ function CreateMangoCupPage() {
           생성하기
         </button>
       </article>
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 2000,
+        }}
+      />
     </>
   );
 }

@@ -5,6 +5,8 @@ import { supabase } from "@/supabase/client";
 import MangoCupCard from "@/components/MangoCupCard";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import MangoCupCardSkeleton from "./MangoCupCardSkeleton";
+
 
 interface MangoCupListType {
   title: string;
@@ -42,20 +44,23 @@ function GetMangoCupList() {
 
   return (
     <div className="flex gap-x-8 mx-10 mt-10 flex-wrap gap-y-8">
-      {mangoCupList?.map((mangoCupData) => (
-        <Link
-          className="w-[calc((100%-3*32px)/4)]"
-          key={mangoCupData.id}
-          href={{ pathname: "/play", query: { id: mangoCupData.id } }}
-        >
+      {mangoCupList ? (
+        mangoCupList.map((mangoCupData) => (
           <MangoCupCard
+            key={mangoCupData.id}
             title={mangoCupData.title}
             likeCount={mangoCupData.like}
             createdAt={mangoCupData.created_at}
             id={mangoCupData.id}
           />
-        </Link>
-      ))}
+        ))
+      ) : (
+        <>
+          <MangoCupCardSkeleton />
+          <MangoCupCardSkeleton />
+          <MangoCupCardSkeleton />
+        </>
+      )}
     </div>
   );
 }
