@@ -85,11 +85,8 @@ function MangoCupCard({
   }, [isShowOption]);
 
   return (
-    <Link
-      className="w-[calc((100%-3*32px)/4)]"
-      href={{ pathname: "/play", query: { id: id } }}
-    >
-      <div className="w-full bg-white rounded-3xl p-3 shadow-xl duration-100">
+    <div className="w-[calc((100%-3*32px)/4)] bg-white rounded-3xl p-3 shadow-xl duration-100">
+      <Link href={{ pathname: "/play", query: { id: id } }}>
         <div className="w-full aspect-video rounded-2xl flex overflow-hidden">
           {mangoCupCardData && (
             <>
@@ -106,47 +103,50 @@ function MangoCupCard({
             </>
           )}
         </div>
-        <div className="ml-3 mr-1 mt-3 flex items-center justify-between">
-          <div>
-            <p className="text-2xl duration-100">{title}</p>
-            <p className="mt-1 text-xs duration-100">
-              {likeCount}k {createdAt.slice(9, 10)}일전
-            </p>
-          </div>
-          <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={handleClickOptionButton}
-              className="w-8 h-8 p-2 rounded-full cursor-pointer bg-white hover:brightness-95 active:brightness-90"
-            >
-              <SlOptionsVertical className="text-black w-4 h-4 duration-100" />
-            </button>
-            {isShowOption && (
-              <ul className="absolute top-8 -left-6 rounded-md pointer-events-auto bg-[#f9f9f9] py-2 shadow-lg">
-                <li className="px-4 py-1 text-sm cursor-pointer bg-[#f9f9f9] whitespace-nowrap hover:brightness-95">
-                  랭킹보기
-                </li>
-                <li className="px-4 py-1 text-sm cursor-pointer bg-[#f9f9f9] whitespace-nowrap hover:brightness-95">
-                  공유하기
-                </li>
-                <li
-                  className="px-4 py-1 text-sm cursor-pointer bg-[#f9f9f9] whitespace-nowrap hover:brightness-95"
-                  onClick={handleClickDeleteButton}
-                >
-                  삭제하기
-                </li>
-              </ul>
-            )}
-          </div>
+      </Link>
+      <div className="ml-3 mr-1 mt-3 flex items-center justify-between">
+        <div>
+          <p className="text-2xl duration-100">{title}</p>
+          <p className="mt-1 text-xs duration-100">
+            {likeCount}k {createdAt.slice(9, 10)}일전
+          </p>
         </div>
-        <Toaster
-          position="bottom-right"
-          reverseOrder={false}
-          toastOptions={{
-            duration: 2000,
-          }}
-        />
+        <div className="relative" ref={dropdownRef}>
+          <button
+            onClick={handleClickOptionButton}
+            className="w-8 h-8 p-2 rounded-full cursor-pointer bg-white hover:brightness-95 active:brightness-90"
+          >
+            <SlOptionsVertical className="text-black w-4 h-4 duration-100" />
+          </button>
+          {isShowOption && (
+            <ul className="absolute top-8 -left-6 rounded-md pointer-events-auto bg-[#f9f9f9] py-2 shadow-lg text-center">
+              <li className="px-4 py-1 text-sm cursor-pointer bg-[#f9f9f9] whitespace-nowrap hover:brightness-95">
+                랭킹보기
+              </li>
+              <li className="px-4 py-1 text-sm cursor-pointer bg-[#f9f9f9] whitespace-nowrap hover:brightness-95">
+                공유하기
+              </li>
+              <li
+                className="px-4 py-1 text-sm cursor-pointer bg-[#f9f9f9] whitespace-nowrap hover:brightness-95"
+                onClick={handleClickDeleteButton}
+              >
+                삭제하기
+              </li>
+              <li className="px-4 py-1 text-sm cursor-pointer bg-[#f9f9f9] whitespace-nowrap hover:brightness-95">
+                좋아요
+              </li>
+            </ul>
+          )}
+        </div>
       </div>
-    </Link>
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 2000,
+        }}
+      />
+    </div>
   );
 }
 

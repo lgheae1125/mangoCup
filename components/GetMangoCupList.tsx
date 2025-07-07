@@ -3,10 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "@/supabase/client";
 import MangoCupCard from "@/components/MangoCupCard";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import MangoCupCardSkeleton from "./MangoCupCardSkeleton";
-
 
 interface MangoCupListType {
   title: string;
