@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import GetMangoCupList from "@/components/GetMangoCupList";
+import RangeOptionButtons from "@/components/RangeOptionButtons";
 
 function HomePage() {
   return (
@@ -13,12 +16,7 @@ function HomePage() {
           <button className="text-black px-4 py-1">최신순</button>
         </div>
         <div className="overflow-hidden rounded bg-white shadow-sm">
-          <button className="bg-yellow-300 text-black px-4 py-1 rounded">
-            전체
-          </button>
-          <button className="text-black px-4 py-1">월</button>
-          <button className="text-black px-4 py-1">주</button>
-          <button className="text-black px-4 py-1">일</button>
+          <RangeOptionButtons />
         </div>
         <div className="ml-auto flex gap-2">
           <button className="bg-yellow-300 text-black shadow-sm py-1 w-20 rounded">

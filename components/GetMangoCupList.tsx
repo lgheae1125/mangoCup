@@ -1,22 +1,22 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
 import { supabase } from "@/supabase/client";
 import MangoCupCard from "@/components/MangoCupCard";
 import { useSearchParams } from "next/navigation";
 import MangoCupCardSkeleton from "./MangoCupCardSkeleton";
+import dayjs from "dayjs";
 
-interface MangoCupListType {
+type MangoCupListType = {
   title: string;
   like: number;
   id: string;
   created_at: string;
-}
+};
 
 function GetMangoCupList() {
   const [mangoCupList, setMangoCupList] = useState<MangoCupListType[]>();
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("search") || "";
+  const searchRange = searchParams.get("range") || "";
 
   useEffect(() => {
     (async () => {
@@ -29,6 +29,13 @@ function GetMangoCupList() {
       if (searchTerm) {
         query = query.ilike("title", `%${searchTerm}%`);
       }
+      if (searchRange) {
+        const currentDate = dayjs().toISOString();
+        const pastDate = dayjs().subtract(Number(searchRange), "day");
+        query = query
+          .gte("created_at", pastDate)
+          .lte("created_at", currentDate);
+      }
 
       const { data, error } = await query;
 
@@ -38,7 +45,7 @@ function GetMangoCupList() {
         setMangoCupList(data);
       }
     })();
-  }, [searchTerm]);
+  }, [searchTerm, searchRange]);
 
   return (
     <div className="flex gap-x-8 mx-10 mt-10 flex-wrap gap-y-8">
